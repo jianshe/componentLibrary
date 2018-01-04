@@ -1,0 +1,84 @@
+.float-window{
+    background:$white;
+    border:1px solid $dgray;
+    position:absolute;
+    width:$five*60;
+    z-index:1002;
+    &.triangle-left{
+        position:absolute;
+        &:before{
+            border-left:$five*2 solid transparent;
+            border-right:$five*2 solid transparent;
+            border-bottom:$five*2 solid $dgray;
+            content:"";
+            height:0;
+            left:$five*6;
+            top:-$five*2;
+            position:absolute;
+            width:0;
+        }
+        &:after{
+            border-left:$five*2-1 solid transparent;
+            border-right:$five*2-1 solid transparent;
+            border-bottom:$five*2-1 solid #fff;
+            content:"";
+            height:0;
+            left:$five*6+1;
+            top:-$five*2+1;
+            position:absolute;
+            width:0;
+        }
+    }
+    &.triangle-right{
+        position:absolute;
+        &:before{
+            border-left:$five*2 solid transparent;
+            border-right:$five*2 solid transparent;
+            border-top:$five*2 solid $dgray;
+            content:"";
+            height:0;
+            right:$five*6;
+            top:$five*19+1;
+            position:absolute;
+            width:0;
+        }
+        &:after{
+            border-left:$five*2-1 solid transparent;
+            border-right:$five*2-1 solid transparent;
+            border-top:$five*2-1 solid #fff;
+            content:"";
+            height:0;
+            right:$five*6+1;
+            top:$five*19+1;
+            position:absolute;
+            width:0;
+        }
+    }
+    //&.verifycode{
+    //    position:absolute;
+    //    &:before{
+    //        border-bottom:0;
+    //        border-left:$five*2 solid transparent;
+    //        border-right:$five*2 solid transparent;
+    //        border-bottom:$five*2 solid $dgray;
+    //        content:"";
+    //        height:0;
+    //        left:$five*6;
+    //        top:-$five*2;
+    //        position:absolute;
+    //        width:0;
+    //    }
+    //    &:after{
+    //        border-bottom:0;
+    //        border-left:$five*2-1 solid transparent;
+    //        border-right:$five*2-1 solid transparent;
+    //        border-bottom:$five*2-1 solid #f7f7f7;
+    //        content:"";
+    //        height:0;
+    //        left:$five*6+1;
+    //        top:-$five*2+1;
+    //        position:absolute;
+    //        width:0;
+    //    }
+    //}
+}

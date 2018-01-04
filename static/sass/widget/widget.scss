@@ -1,0 +1,130 @@
+/**
+ * widget
+ * created:2017/1/3
+ */
+@charset "utf-8";
+@import "../common/variables";
+@import "compass/css3";
+@import "compass/typography";
+
+header{
+    background:$zerohoary;
+    border-bottom:1px solid $dgray;
+    position:relative;
+    z-index:$z2;
+}
+xmp{
+    margin:0;
+    white-space:pre-line;
+}
+h1{
+    font-weight:bold;
+    margin:$five*2 0;
+}
+.navbar-header{
+    margin-left:$five*18;
+}
+.widget-title{
+    font-size:$f26;
+    float:left;
+    padding-left:$five*6;
+    margin-top:$five*4;
+    width:$fivepercent*20;
+}
+.widget-left{
+    background:$zerohoary;
+    border-right:1px solid $dgray;
+    height:$fivepercent*20;
+    overflow-y:auto;
+    padding-top:$five*16;
+    position:absolute;
+    top:0;
+    width:$five*54;
+    z-index:$z1;
+}
+.widget-li{
+    border-top:1px solid $zerohoary;
+    height:$five*8;
+    line-height:$five*8;
+    padding-left:$five*6;
+    width:$fivepercent*20;
+    &:first-child{
+        border-top:0;
+    }
+    a{
+        color:$sixgray;
+        display:block;
+        height:$five*8;
+        width:$fivepercent*20;
+    }
+    &:hover{
+        background:#e7e7e7;
+    }
+}
+.widget-active{
+    background:#e7e7e7;
+}
+.widget-right{
+    height:$fivepercent*20;
+    padding-left:$five*54;
+    overflow-y:auto;
+    padding-top:$five*16;
+    position:absolute;
+    top:0;
+    width:$fivepercent*20;
+}
+.widget-right-content{
+    padding:$five*4;
+    position:relative;
+}
+fieldset{
+    border:1px solid $zerohoary;
+    display:inline-block;
+    padding:$five*3;
+    width:$fivepercent*6+3;
+    span{
+        margin:$five*2 0;
+    }
+}
+.legend-green{
+    color:$green;
+}
+.legend-orange{
+    color:$orange;
+}
+.widget-content-code{
+    margin-top:$five*6;
+}
+.widget-pop-test{
+    background:$white;
+    border:1px solid $zerohoary;
+    display:none;
+    height:$five*20;
+    margin-left:$five*97;
+    margin-top:$five*2;
+    padding:$five*4;
+    position:absolute;
+    width:$five*60;
+}
+.widget-city{
+    border:1px solid $zerohoary;
+    display:inline-block;
+    padding:$five;
+    &:hover{
+        background:$zerohoary;
+    }
+    span{
+        cursor:pointer;
+    }
+    .float-map-style{
+        margin-left:-($five+1);
+        margin-top:$five+2;
+    }
+}
+.widget-form-save{
+    margin-top:$five*4;
+    padding-left:$five*40;
+}
+.widget-share{
+    vertical-align:top;
+}

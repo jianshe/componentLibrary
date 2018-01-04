@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>适用的功能性组件</title>
+    <link rel="shortcut icon" href="/static/images/icon/favicon32.ico"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/widget/widget.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv.min.js"></script>
+    <script src="/static/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        window.g_config = {
+            
+        };
+    </script>
+  </head>
+  <body>
+    <!-- header start -->
+    <header id="header">
+      <nav class="navbar">
+        <div class="nav-wrap">
+          <div class="widget-title">web前端组件化</div>
+        </div>
+      </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <div class="widget-left">
+
+    </div>
+    <div class="widget-right">
+      <div class="widget-right-content">
+        <div class="widget-content-info">
+            <div class="widget-city"><i class="icon-location"></i><span id="city" data-cityid="2221">漯河</span></div>
+        </div>
+        <div class="widget-content-code">
+            <div class="new-tab">
+              <ul class="tab-boder J-Normal">
+                  <li class="active"><a href="javascript:void(0)" data-href="#html_code">html代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#js_code">js代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#css_code">scss代码</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div class="tab-list active html" id="html_code">
+                      <div class="widget-city"><i class="icon-location"></i><span id="city" data-cityid="2221">漯河</span></div>
+                  </div>
+                  <div class="tab-list" id="js_code">
+                    window.g_config = window.g_config || {};
+
+                    require.config({
+                        baseUrl: window.g_config.staticHost != undefined ? window.g_config.staticHost : '/static/js/',
+                    
+                        paths: {
+                            jquery: 'lib/jquery'
+                        },
+                        shim: {
+                    
+                        }
+                    });
+                    
+                    require([
+                        'jquery',
+                        'common/base',
+                        'common/city'
+                    ], function ($, base,city) {
+                        $(function ($) {
+                            $(".widget-left").append(base.tpls("common/menu_left")).find("li").eq(4).addClass("widget-active");;
+                            base.com.tab.init("J-Normal");
+                            $("#city").click(function() {
+                                city.init($(this), function(city) {
+                                    $("#city").attr("data-cityid", city.id).html(city.name);
+                                });
+                            });
+                        });
+                    });
+                  </div>
+                  <div class="tab-list" id="css_code">
+                      <xmp>
+                        .map-search{
+                            padding:$five*2;
+                            position:relative;
+                            i{
+                                display:inline-block;
+                                margin:0 $five*2;
+                            }
+                            input{
+                                border:1px solid $dgray;
+                                height:$five*6;
+                                margin-right:$five*2;
+                                padding-left:$five*2;
+                                width:$five*56;
+                            }
+                        }
+                        .map-li{
+                            border-bottom:1px solid $dgray;
+                            display:block;
+                            margin:0 $five*2;
+                            li{
+                                color:$linkcolor;
+                                cursor:pointer;
+                                display:inline-block;
+                                margin:0 $five*2;
+                                padding:$five 0;
+                                &.map-active{
+                                    color:$green;
+                                    border-bottom:2px solid $green;
+                                }
+                            }
+                        }
+                        .map-all{
+                            display:block;
+                            padding:$five*2;
+                            .map-content{
+                                display:none;
+                                dl{
+                                    display:block;
+                                    margin-bottom:0;
+                                    dt{
+                                        color:$green;
+                                        float:left;
+                                        padding-left:$five*2;
+                                        padding-top:$five;
+                                        width:$five*4;
+                                    }
+                                    dd{
+                                        overflow:hidden;
+                                        span{
+                                            display:inline-block;
+                                            margin:$five $five*2;
+                                        }
+                                    }
+                                }
+                                &:first-child{
+                                    display:block;
+                                }
+                            }
+                        }
+                        .float-map{
+                            width:$five*100;
+                        }
+                        .float-map-style{
+                            width:$five*76;
+                            .map-search{
+                              input[type="text"]{
+                                width:$five*42!important;
+                              }
+                            }
+                            .map-search-result{
+                              width:$five*44;
+                            }
+                        }
+                        .map-search-result{
+                            background:$white;
+                            border:1px solid $dgray;
+                            border-top:0;
+                            display:none;
+                            left:$five*12+2;
+                            max-height:$five*60;
+                            overflow-x:auto;
+                            position:absolute;
+                            top:$five*8;
+                            width:$five*56;
+                            z-index:1;
+                            li{
+                                cursor:pointer;
+                                padding:$five $five*2;
+                                &:hover{
+                                    background:$green;
+                                    color:$white;
+                                }
+                            }
+                        }
+                        .map-li-style{
+                            float:left;
+                            margin-left:$five*2;
+                            .item{
+                                  color:$sixgray;
+                                  display:inline-block;
+                                  font-size:$font-size-normal;
+                                  float:left;
+                                  overflow: hidden;
+                                  padding: 4px 0;
+                                  width: $five*12;
+                                  span{
+                                      cursor: pointer;
+                                      display:inline-block;
+                                      position: relative;
+                                      line-height:$five*3-1;
+                                      padding: 4px 7px;
+                                      &.active{
+                                        background:$darkgray;
+                                        color:$white;
+                                        &:after{
+                                              bottom: -$five;
+                                              content: " ";
+                                              border-width: 0 $five $five;
+                                              border-style: solid;
+                                              border-bottom-color: $dgray;
+                                              color: #fff;
+                                              left: $fivepercent*8;
+                                              position: absolute;
+                                        }
+                                      }
+                                      &:hover{
+                                        background:$darkgray;
+                                        color:$white;
+                                      }
+                                  }
+                            }
+                            .sub-item{
+                                  border-style: solid;
+                                  border-width: 1px 0;
+                                  background-color: #f9f9f9;
+                                  color: $dgray;
+                                  display:none;
+                                  float:left;
+                                  margin-left:-$five*2;
+                                  padding-left:$five*2;
+                                  width:$five*75+3;
+                                  .item{
+                                    span{
+                                        font-size:$font-size-small;
+                                        padding: 4px;
+                                    }
+                                  }
+                            }
+                        }
+                    </xmp>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/lib/jquery.htmlcode-1.0.js"></script>
+  <script type="text/javascript">
+      $("#html_code").htmlcode($("#html_code"));
+      $("#js_code").htmlcode($("#js_code"));
+  </script>
+  <script data-main="/static/js/widget/city" src="/static/js/lib/require.js"></script>
+</html>

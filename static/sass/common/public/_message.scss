@@ -1,0 +1,79 @@
+message{
+    left:0;
+    padding:$five*2;
+    position:fixed;
+    top:0;
+    width:$fivepercent*20;
+    z-index: 700;
+    @include animation(zoomOpacity 0.5s ease-out 0.1);
+}
+.message-out{
+    opacity:0;
+    left:0;
+    padding:$five*2;
+    position:fixed;
+    top:0;
+    width:$fivepercent*20;
+    @include animation(fadeout 0.1s ease-out);
+    @include animation-fill-mode(forwards);
+}
+.message-success{
+    background:$success;
+    color:$sucesscolor;
+}
+.message-info{
+    background:$info;
+    color:$infocolor;
+}
+.message-waring{
+    background:$waring;
+    color:$waringcolor;
+}
+.message-error{
+    background:$error;
+    color:$errorcolor;
+}
+.message-content{
+    margin:0 auto;
+    text-align:center;
+    width:$fivepercent*16;
+}
+.message-close{
+    color:$black;
+    cursor:pointer;
+    font-size:$f16;
+    right:$five*4;
+    top:$five*3-1;
+    position:absolute;
+}
+.none-message{
+    width:$fivepercent*20;
+    i{
+        font-size:$f50;
+    }
+    .none-message-text{
+        display:inline-block;
+        margin-left:$five*2;
+        line-height:$five*5;
+    }
+}
+.content-none{
+    font-size:$f18;
+    left:$fivepercent*10;
+    height:$five*22;
+    line-height:$five*8;
+    margin-left:-$five*32;
+    margin-top:-$five*7;
+    position:absolute;
+    top:$fivepercent*10;
+    width:$five*64;
+    img{
+        float:left;
+    }
+    span{
+        margin-left:$five*4;
+    }
+    a{
+        color:$white;
+    }
+}

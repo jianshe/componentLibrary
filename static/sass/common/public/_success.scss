@@ -1,0 +1,29 @@
+.success-success{
+    padding: $five*20 $five*10;
+    .success-icon i{
+        color: $green;
+        font-size: $five*16;
+    }
+    
+    .success-item{
+        padding: $five $five*4;
+        .success-title{
+            font-size: $f24;
+            margin-bottom: $five*4;
+        }
+        .success-content{
+            
+        }
+        .success-go{
+            a{
+                margin-right: $five*8;
+            }   
+        }
+        .success-time{
+            top: -$five*4;
+            color: $ninegray;
+            position: absolute;
+            left: $five*4;
+        }
+    }   
+}

@@ -1,0 +1,130 @@
+footer{
+    // margin-top:$five*4;
+    .container{
+        padding:0;
+        width:$five*244!important;
+      }
+}
+.article-style{
+    footer{
+        .container{
+            padding:0;
+            width:$five*228!important;
+          }
+    }
+}
+.foot-top{
+    background:#dbdfdf;
+    color:#a1a1a1;
+    padding:$five*2 0;
+}
+.foot-middle{
+    background:#2d3236;
+    color:$ninegray;
+    min-height:$five*43+3;
+    .foot-four{
+        display:inline-block;
+        float:left;
+        line-height:$five*6;
+        margin-right:4%;
+        vertical-align:top;
+        width:$fivepercent*7;
+        h4{
+            color:$white;
+            font-size:$f16;
+            margin-bottom:$five*4;
+        }
+        a{
+            color:$ninegray;
+            text-decoration:none;
+            &:hover{
+                color:$green;
+            }
+        }
+    }
+    .foot-middel-left{
+        margin-top:$five*8;
+        a{
+            margin-right:0;
+            &:hover{
+                &:after{
+                    color:$ninegray;
+                }
+            }
+        }
+    }
+    .foot-middel-middle{
+        margin-top:$five*8;
+        a{
+            display:inline-block;
+            float:left;
+            margin-right:2%;
+            width:$fivepercent*5-3;
+            @include ellipsis;
+            &:last-child{
+                margin-right:0;
+            }
+        }
+    }
+    .foot-middel-right{
+        margin-top:$five*8;
+        display:inline-block;
+        font-size:$f12;
+        line-height:$five*5-1;
+        *line-height:$five*7+3;
+        padding-left:$five*4;
+        padding-top:$five*2-2;
+        width:$fivepercent*4-1;
+        span{
+            display:inline-block;
+            margin-left:$five*3;
+        }
+    }
+}
+.foot-bottom{
+    background:#23282c;
+    color:$ninegray;
+    margin-top:-1px;
+    padding:$five*2 0 $five*3 0;
+    .link{
+        height:$five*5;
+        line-height:$five*5;
+        margin-bottom:$five*3;
+        margin-top:$five;
+        overflow:hidden;
+        padding:0 $five*3 0 $five*15;
+        position:relative;
+        text-align:left;
+        width:$fivepercent*20;
+        *width:$fivepercent*19-2;
+        .link-label{
+            left:0;
+            position:absolute;
+            top:0;
+        }
+        .link-fold{
+            cursor:pointer;
+            right:0;
+            position:absolute;
+            top:0;
+            i{
+                display:inline-block;
+                margin-top:($five+2);
+            }
+        }
+        span{
+            display:inline-block;
+            word-spacing:2px;
+        }
+        a{
+            color:$ninegray;
+            &:hover{
+                color:$green;
+            }
+        }
+    }
+    
+}
+.link-unfold {
+    height: auto!important;
+}

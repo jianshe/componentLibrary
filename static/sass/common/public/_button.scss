@@ -1,0 +1,94 @@
+.btn{
+    border:0;
+    cursor:pointer;
+    display:inline-block;
+    font-size:$f14;
+    font-weight:500;
+    margin-bottom:0;
+    position:relative;
+    text-align:center;
+    white-space:nowrap;
+    @include border-radius(2px);
+    @include border-radius(2px);
+    &.active.focus,&.active:focus,&.focus,&.focus:active,&:active:focus,&:focus{
+        outline:none;
+    }
+}
+.btn-small{
+    padding:$five $five*2;
+}
+.btn-middle{
+    padding:$five $five*4;
+}
+.btn-large{
+    padding:$five*2 $five*6;
+}
+.btn-full{
+    border-radius:0;
+    padding:$five*2 $five*6;
+    width:$fivepercent*20;
+}
+.btn-primary{
+    background:$blue;
+    color:$white;
+    &:hover,&:active,&:focus{
+        background:$darkblue;
+    }
+}
+.btn-success{
+    background:$green;
+    color:$white;
+    &:hover{
+        background:$darkgreen;
+    }
+}
+.btn-border-success{
+    border:1px solid $green;
+    color:$green;
+    &:hover{
+        background:$green;
+        color:$white;
+    }
+}
+.btn-orange{
+    background:$lightorange;
+    color:$white;
+    &:hover,&:active,&:focus{
+        background:$darkOrange;
+        color:$white;
+    }
+}
+.btn-border-orange{
+    border:1px solid $lightorange;
+    color:$lightorange;
+    &:hover{
+        background:$lightorange;
+        color:$white;
+    }
+}
+.btn-disabled{
+    background:$disabledColor;
+    color:$darkgray;
+}
+.btn-border-disabled{
+    border:1px solid $disabledColor;
+    color:$disabledColor;
+    &:hover{
+        border:1px solid $green;
+        color:$green;
+    }
+}
+.btn-red{
+    background:$red;
+    color:$white;
+    &:hover,&:active,&:focus{
+        background:$darkred;
+    }
+}
+.btn-black{
+    background:$sixgray;
+    color:$white;
+    &:hover,&:active,&:focus{
+        color:$hoary;
+    }
+}

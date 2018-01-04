@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>适用的功能性组件</title>
+    <link rel="shortcut icon" href="/static/images/icon/favicon32.ico"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/lib/glDatePicker.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/widget/widget.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv.min.js"></script>
+    <script src="/static/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        window.g_config = {
+            
+        };
+    </script>
+  </head>
+  <body>
+    <!-- header start -->
+    <header id="header">
+      <nav class="navbar">
+        <div class="nav-wrap">
+          <div class="widget-title">web前端组件化</div>
+        </div>
+      </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <div class="widget-left">
+
+    </div>
+    <div class="widget-right">
+      <div class="widget-right-content">
+        <div class="widget-content-info">
+            开始时间：<input type="text" id="start_time">  结束时间：<input type="text" id="end_time">
+        </div>
+        <div class="widget-content-code">
+            <div class="new-tab">
+              <ul class="tab-boder J-Normal">
+                  <li class="active"><a href="javascript:void(0)" data-href="#html_code">html代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#js_code">js代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#css_code">scss代码</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div class="tab-list active html" id="html_code">
+                      开始时间：<input type="text" id="start_time">  结束时间：<input type="text" id="end_time">
+                  </div>
+                  <div class="tab-list" id="js_code">
+                    window.g_config = window.g_config || {};
+
+                    require.config({
+                        baseUrl: window.g_config.staticHost != undefined ? window.g_config.staticHost : '/static/js/',
+                    
+                        paths: {
+                            jquery: 'lib/jquery',
+                            datepicker: 'lib/glDatePicker'
+                        },
+                        shim: {
+                    
+                        }
+                    });
+                    
+                    require([
+                        'jquery',
+                        'common/base',
+                        'datepicker'
+                    ], function ($, base) {
+                        $(function ($) {
+                            var dateyear, datemonth, dateday, datetime;
+                    
+                            $(".widget-left").append(base.tpls("common/menu_left")).find("li").eq(3).addClass("widget-active");;
+                            base.com.tab.init("J-Normal");
+                    
+                            datetime = new Date();
+                            dateyear = datetime.getFullYear();
+                            datemonth = datetime.getMonth();
+                            dateday = datetime.getDate();
+                            $("#start_time").glDatePicker({
+                                cssName: 'flatwhite',
+                                pickerWidth: 250,
+                                selectedDate: new Date(dateyear, datemonth, dateday),
+                                onClick: function (target, cell, datetime, data) {
+                                    target.val(datetime.getFullYear() + '-' +
+                                        (datetime.getMonth() + 1) + '-' +
+                                        datetime.getDate());
+                                }
+                            });
+                            $("#end_time").glDatePicker({
+                                cssName: 'flatwhite',
+                                pickerWidth: 250,
+                                // selectableDateRange: [
+                                //     { from: new Date(1985,6,1),
+                                //         to: new Date(2100,1,1) }
+                                // ],
+                                selectedDate: new Date(dateyear, datemonth, dateday),
+                                onClick: function (target, cell, datetime, data) {
+                                    target.val(datetime.getFullYear() + '-' +
+                                        (datetime.getMonth() + 1) + '-' +
+                                        datetime.getDate());
+                                    var end_date = datetime.getFullYear() + '-' +
+                                        (datetime.getMonth() + 1) + '-' +
+                                        datetime.getDate();
+                                    var star_end = $("#start_time").val();
+                                    star_end = new Date((star_end || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+                                    var dateDown = new Date((end_date || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
+                                        diffDown = ((dateDown.getTime() - star_end.getTime()) / 1000),
+                                        day_Down = Math.floor(diffDown / 86400);
+                                    if (isNaN(day_Down) || day_Down <= 0) {
+                                        alert("结束时间不能小于开始时间");
+                                        return;
+                                    }
+                                }
+                            });
+                        });
+                    });
+                  </div>
+                  <div class="tab-list" id="css_code">
+                      <xmp>
+                        
+                    </xmp>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/lib/jquery.htmlcode-1.0.js"></script>
+  <script type="text/javascript">
+      $("#html_code").htmlcode($("#html_code"));
+      $("#js_code").htmlcode($("#js_code"));
+  </script>
+  <script data-main="/static/js/widget/calendar" src="/static/js/lib/require.js"></script>
+</html>

@@ -1,0 +1,2 @@
+/*TMODJS:{"version":1,"md5":"783847b93d89e23cdb1ea09b5e6dc4ca"}*/
+template('common/verification','<div class="verification"> <img src="" id="verifycode"/> <span class="refresh" id="js-refresh-code">换一下</span> <br> <input type="text" id="verification" name="verification" max-length="4"> <span class="btn btn-small btn-success js-confirm">确认</span> </div>');

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>适用的功能性组件</title>
+    <link rel="shortcut icon" href="/static/images/icon/favicon32.ico"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/widget/widget.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv.min.js"></script>
+    <script src="/static/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        window.g_config = {
+            
+        };
+    </script>
+  </head>
+  <body>
+    <!-- header start -->
+    <header id="header">
+      <nav class="navbar">
+        <div class="nav-wrap">
+          <div class="widget-title">web前端组件化</div>
+        </div>
+      </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <div class="widget-left">
+
+    </div>
+    <div class="widget-right">
+      <div class="widget-right-content">
+        <div class="widget-content-info">
+          <form id="post_form">
+            <dl class="form-list">
+              <dt>用 户 名</dt>
+              <dd><input type="text" name="username" placeholder="请输入用户名"></dd>
+            </dl>
+            <dl class="form-list">
+              <dt>真实姓名</dt>
+              <dd><input type="text" name="realname" placeholder="请输入真实姓名"></dd>
+            </dl>
+            <dl class="form-list">
+              <dt>密 码</dt>
+              <dd><input type="password" name="pwd"></dd>
+            </dl>
+            <dl class="form-list">
+              <dt>邮 箱</dt>
+              <dd><input type="text" name="email" placeholder="请输入邮箱"></dd>
+            </dl>
+            <dl class="form-list">
+              <dt>手机号码</dt>
+              <dd><input id="tel" type="text" name="tel" placeholder="请输入手机号码"></dd>
+            </dl>
+            <dl class="form-list">
+              <dt>验证码</dt>
+              <dd><input type="text" class="verify-code" name="verifycode"> <span id="verify_code" class="verify-code-op">验证手机</span></dd>
+            </dl>
+            <div class="widget-form-save"><span class="btn btn-middle btn-success J-Save">保存</span></div>
+          </form>
+        </div>
+        <div class="widget-content-code">
+            <div class="new-tab">
+              <ul class="tab-boder J-Normal">
+                  <li class="active"><a href="javascript:void(0)" data-href="#html_code">html代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#js_code">js代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#css_code">scss代码</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div class="tab-list active html" id="html_code">
+                      <form id="post_form">
+                        <dl class="form-list">
+                          <dt>用 户 名</dt>
+                          <dd><input type="text" name="username" placeholder="请输入用户名"></dd>
+                        </dl>
+                        <dl class="form-list">
+                          <dt>真实姓名</dt>
+                          <dd><input type="text" name="realname" placeholder="请输入真实姓名"></dd>
+                        </dl>
+                        <dl class="form-list">
+                          <dt>密 码</dt>
+                          <dd><input type="password" name="pwd"></dd>
+                        </dl>
+                        <dl class="form-list">
+                          <dt>邮 箱</dt>
+                          <dd><input type="text" name="email" placeholder="请输入邮箱"></dd>
+                        </dl>
+                        <dl class="form-list">
+                          <dt>手机号码</dt>
+                          <dd><input id="tel" type="text" name="tel" placeholder="请输入手机号码"></dd>
+                        </dl>
+                        <dl class="form-list">
+                          <dt>验证码</dt>
+                          <dd><input type="text" class="verify-code" name="verifycode"> <span id="verify_code" class="verify-code-op">验证手机</span></dd>
+                        </dl>
+                        <div class="widget-form-save"><span class="btn btn-middle btn-success J-Save">保存</span></div>
+                      </form>
+                  </div>
+                  <div class="tab-list" id="js_code">
+                     
+                    window.g_config = window.g_config || {};
+
+                    require.config({
+                    
+                        baseUrl: window.g_config.staticHost != undefined ? window.g_config.staticHost : '/static/js/',
+                    
+                        paths: {
+                            jquery: 'lib/jquery'
+                        },
+                        shim: {
+                    
+                        }
+                    });
+                    
+                    require([
+                        'jquery',
+                        'common/base'
+                    ], function ($, base) {
+                        $(function ($) {
+                            base.com.tab.init("tab-boder");
+                            $(".widget-left").append(base.tpls("common/menu_left")).find("li").eq(6).addClass("widget-active");;
+                            base.com.tab.init("J-Normal");
+                            //校验
+                           var validator = $("#post_form").validate({
+                               ignore: "",
+                               rules: {
+                                   username: {
+                                       required: true,
+                                       rangelength: [4, 30]
+                                   },
+                                   realname: {
+                                       required: true,
+                                       realName: true
+                                   },
+                                   pwd: "required",
+                                   email: {
+                                       required: true,
+                                       iemail: true
+                                   },
+                                   tel: {
+                                       required: true,
+                                       imobile: true
+                                   },
+                                   verifycode: {
+                                       required: true,
+                                       authCode: true
+                                   }
+                               },
+                               messages: {
+                                   username: {
+                                       required: "请填写用户名",
+                                       rangelength: "标题长度应在5-30个字符之间"
+                                   },
+                                   realname: {
+                                       required: "请填写真实姓名",
+                                       realname: "请输入中文真实姓名"
+                                   },
+                                   pwd: "密码不能为空",
+                                   email: {
+                                       required: "请填写邮箱",
+                                       iemail: "请输入正确格式的电子邮件"
+                                   },
+                                   tel: {
+                                       required: "请填写手机号码",
+                                       imobile: "请填写正确的手机号码"
+                                   },
+                                   verifycode: {
+                                       required: "请输入验证码",
+                                       authCode: "请填写六位数字验证码"
+                                   }
+                               },
+                               errorPlacement: function(error, element) {
+                                   error.appendTo(element.closest(".form-list dd"));
+                               },
+                               submitHandler: function() {
+                                  
+                               }
+                           });
+                    
+                           //保存
+                           $(".J-Save").click(function() {
+                               if (base.debug === false && base.account.isLogin() === false) {
+                                   base.account.login();
+                                   return;
+                               }
+                               if ($(this).hasClass('btn-disabled')) {
+                                   return;
+                               }
+                               $('#post_form').submit();
+                           });
+                    
+                           //验证码
+                           $("#verify_code").click(function(){
+                               var _this = $(this),
+                                   mobile = base.utils.strTrim($("#tel").val());
+                               if(mobile == ""){
+                                   base.ui.alert("error", "手机号码不能为空");
+                                   return;
+                               }
+                               base.account.verifycode(_this, mobile);
+                           });
+                    
+                        });
+                    });
+                  </div>
+                  <div class="tab-list" id="css_code">
+                      <xmp>
+                       .form-list{
+                          color:$sixgray;
+                          display:block;
+                          // height:$five*12;
+                          margin-top:$five*5;
+                          position:relative;
+                          dt{
+                              display:inline-block;
+                              font-size:$font-size-large;
+                              font-weight:lighter;
+                              float:left;
+                              height:$five*6;
+                              margin-right:$five*2;
+                              margin-top:$five+1;
+                              overflow:hidden;
+                              text-align:justify;
+                              text-justify:inter-ideograph;
+                              width:$five*14;
+                              &:after{
+                                  display:inline-block;
+                                  content:'';
+                                  overflow:hidden;
+                                  width:$fivepercent*20;
+                                  height:0;
+                              }
+                          }
+                          dd{
+                              display:inline-block;
+                              .verify-code{
+                                  float:left;
+                                  width:$five*24!important;
+                              }
+                              .verify-code-op{
+                                  border:1px solid $gray{
+                                      left:0;
+                                  };
+                                  cursor:pointer;
+                                  display:inline-block;
+                                  height:$five*7+2;
+                                  line-height:$five*7+2;
+                                  padding:0 $five+1;
+                              }
+                          }
+                          input[type="text"],input[type="password"],textarea{
+                              border:1px solid $gray;
+                              padding:$five*2;
+                              width:$fivepercent*20;
+                              &.error{
+                                  border:1px solid $lightorange;
+                              }
+                              &:focus{
+                                  border:1px solid $green;
+                              }
+                          }
+                          label.error{
+                              background: url("/static/images/new/common/share/icon-errors.png") no-repeat 0 2px;
+                              color:$lightorange;
+                              display:block;
+                              font-weight: normal;
+                              margin-top:$five*2;
+                              padding-left:$five*4;
+                              position: relative;
+                              /*@include opacity(0);*/
+                          }
+                          i{
+                              position: absolute;
+                              right: $five*2;
+                              top: $five*2;
+                              font-size: $five*4;
+                              color: $ninegray;
+                          }
+                          /*.visible{
+                              @include opacity(1);
+                          }*/
+                      }
+                    </xmp>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </body>
+  <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/lib/jquery.htmlcode-1.0.js"></script>
+  <script type="text/javascript">
+      $("#html_code").htmlcode($("#html_code"));
+      $("#js_code").htmlcode($("#js_code"));
+  </script>
+  <script data-main="/static/js/widget/form" src="/static/js/lib/require.js"></script>
+</html>

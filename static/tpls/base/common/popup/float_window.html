@@ -1,0 +1,11 @@
+{{ if istriangle}}
+	{{if direction}}
+		<div class="float-window triangle-left {{ classname }}" style="left:{{ left }};top:{{ top }}">
+	{{else}}
+		<div class="float-window triangle-right {{ classname }}" style="left:{{ left }};top:{{ top }}">
+	{{/if}}
+{{else}}
+	<div class="float-window {{ classname }}" style="left:{{ left }};top:{{ top }}">
+{{/if}}
+	{{#content}}
+</div>

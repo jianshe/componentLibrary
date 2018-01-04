@@ -1,0 +1,115 @@
+.screen-bg{
+    background:$black;
+    bottom:0;
+    left:0;
+    right:0;
+    top:0;
+    position:fixed;
+    z-index:999;
+    @include opacity(.5);
+}
+
+.mark-close{
+    position: fixed;
+    top: $five*10;
+    right: $five*10;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.pop{
+    background:$white;
+    min-height:$five*40;
+    //height:$five*120;
+    left:$fivepercent*10;
+    margin-left:-$fivepercent*6;
+    margin-top:-$five*60;
+    position:fixed;
+    top:$fivepercent*10;
+    width:$fivepercent*12;
+    z-index:1000;
+    @include animation(bounceInDown 1s ease-out 0.1);
+    .designer-list-none{
+        min-height:$five*30;
+        line-height:$five*12;
+        padding:$five*10 0;
+        text-align:center;
+    }
+    .pop-agreement{
+        height:$five*100;
+        line-height:$five*5;
+        overflow-y:auto;
+        h2{
+            font-size:$f16;
+            font-weight:bold;
+        }
+    }
+    .pop-title{
+        background:$lighterhoary;
+        border-bottom: 1px solid $lightergray;
+        color:$darkgray;
+        display:block;
+        font-size:$f16;
+        padding:$five*2 $five*4;
+        @include border-radius($five $five 0 0);
+    }
+    .pop-content{
+        display:block;
+        overflow-y:auto;
+        max-height:$five*110;
+        padding:$five $five*6;
+    }
+    .pop-close{
+        color:$ninegray;
+        cursor:pointer;
+        font-size:$f22;
+        line-height:$five*4;
+        right:$five*3;
+        top:$five*2+3;
+        position:absolute;
+        text-align:center;
+        z-index:1001;
+    }
+    .pop-bottom{
+        bottom:$five*2;
+        display:block;
+        margin-top:$five*2;
+        padding:$five*2;
+        position:absolute;
+        text-align:right;
+        width:$fivepercent*20;
+        .btn{
+            margin-right:$five*2;
+        }
+    }
+    &.confirm{
+        .pop-content{
+            padding:$five*2 $five*6 $five*9+3 $five*6;
+        }
+    }
+    .ie7-close{
+        color:$gray;
+        cursor:pointer;
+        font-size:$f24;
+        position:absolute;
+        right:$five*2;
+        top:$five;
+    }
+}
+.pop-del{
+    line-height:$five*30;
+    text-align:center;
+    span{
+        background:$green;
+        color:$white;
+        cursor:pointer;
+        font-size:$f16;
+        padding:$five $five*3;
+        margin-left:$five*2;
+        vertical-align:middle;
+        @include border-radius(2px);
+        &:hover{
+            background:$darkGreen;
+        }
+    }
+}

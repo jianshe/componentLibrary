@@ -1,0 +1,110 @@
+.dropdown {
+    -moz-user-select: none;
+    background:$white;
+    border: 1px solid $dgray;
+    cursor: pointer;
+    display:inline-block;
+    position: relative;
+    //width: $five*32;
+    @include transition(all 150ms ease-in-out 0s);
+    .selected{
+        color: $black;
+        display: block;
+        font-size:$f14;
+        line-height: 1;
+        overflow: hidden;
+        padding:$five*2-1 $five*2+2;
+        white-space: nowrap;
+        &:after{
+            bottom: 0;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: $five*12;
+            @include border-radius(0 2px 2px 0);
+            @include box-shadow((-$five*11) 0 2($five*5) (-$five*4) #fff inset);
+        }
+    }
+    div{
+          position: absolute;
+          height: 0;
+          left: -1px;
+          right: -1px;
+          top:$fivepercent*20;
+          margin-top: -1px;
+          background: $white;
+          border: 1px solid $dgray;
+          border-top: 1px solid $dgray;
+          overflow: hidden;
+          @include transition(all 150ms ease-in-out 0s);
+          @include border-radius(0 0 3px 3px);
+          @include opacity(0);
+        &:after{
+            @include transition(all 150ms ease-in-out 0s);
+        }
+    }
+    li{
+        display: block;
+        font-size:$f14;
+        line-height: 1;
+        color: $black;
+        list-style: none;
+        padding:$five*2-1 $five*2+2;
+        overflow: hidden;
+        white-space: nowrap;
+        @include transition(all 150ms ease-in-out 0s);
+        &.active{
+            background:$green;
+            color:$white;
+            font-weight: 700;
+        }
+        &.focus{
+            color:$white;
+            background:$green;
+            position:relative;
+            z-index:3;
+        }
+    }
+    .carat{
+        border:$five+1 solid transparent;
+        border-top: $five+3 solid $black;
+        margin-top: -4px;
+        position: absolute;
+        right:$five*2+2;
+        top:$fivepercent*10;
+    }
+    &.open{
+        z-index:2;
+        .carat{ 
+            border-bottom:$five+3 solid $black;
+            border-top:$five+1 solid transparent;
+            margin-top: -$five*2;
+        }
+        div{
+            @include opacity(1);
+            z-index:2;
+        }
+    }
+    ul{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height:$fivepercent*20;
+      width:$fivepercent*20;
+      list-style: none;
+      overflow: hidden;
+    }
+}
+
+.dropdown .old {
+    height: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.select-city{
+    font-size:$f18;
+}

@@ -1,0 +1,4 @@
+{{each list as value }}
+	<input type="{{ value.type }}" id="{{ value.id }}" name="{{ value.name }}" value="{{ value.value }}">
+	<label for="{{ value.id }}">{{ value.content }}</label>
+{{/each}}

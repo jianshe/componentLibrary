@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>适用的功能性组件</title>
+    <link rel="shortcut icon" href="/static/images/icon/favicon32.ico"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/common/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/widget/widget.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv.min.js"></script>
+    <script src="/static/js/lib/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        window.g_config = {
+            
+        };
+    </script>
+  <body>
+    <!-- header start -->
+    <header id="header">
+        <nav class="navbar">
+          <div class="nav-wrap">
+            <div class="widget-title">web前端组件化</div>
+          </div>
+        </nav>
+      </header>
+      <!-- header end -->
+
+    <!-- section start -->
+    <div class="widget-left">
+        
+    </div>
+    <div class="widget-right">
+      <div class="widget-right-content">
+        <div class="widget-content-info">
+          <em class="widget-share">分享到：</em>
+          <a class="share-share-weibo-18 js-share display-block" data-webid="tsina" data-url="" href="javacriptt:;" title="微博分享"></a>
+          <a class="share-share-weixin-18 js-share display-block" data-webid="weixin" data-url="" href="javacriptt:;" title="微信分享"></a>
+          <a class="share-share-qq-18 js-share display-block" data-webid="qzone" data-url="" href="javacriptt:;" title="QQ空间分享"></a>
+        </div>
+        <div class="widget-content-code">
+            <div class="new-tab">
+              <ul class="tab-boder J-Normal">
+                  <li class="active"><a href="javascript:void(0)" data-href="#html_code">html代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#js_code">js代码</a></li>
+                  <li ><a href="javascript:void(0)" data-href="#css_code">scss代码</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div class="tab-list active html" id="html_code">
+                      <em class="widget-share">分享到：</em>
+                      <a class="share-share-weibo-18 js-share display-block" data-webid="tsina" data-url="" href="javacriptt:;" title="微博分享"></a>
+                      <a class="share-share-weixin-18 js-share display-block" data-webid="weixin" data-url="" href="javacriptt:;" title="微信分享"></a>
+                      <a class="share-share-qq-18 js-share display-block" data-webid="qzone" data-url="" href="javacriptt:;" title="QQ空间分享"></a>
+                  </div>
+                  <div class="tab-list" id="js_code">
+                    window.g_config = window.g_config || {};
+
+                    require.config({
+                        baseUrl: window.g_config.staticHost != undefined ? window.g_config.staticHost : '/static/js/',
+                    
+                        paths: {
+                            jquery: 'lib/jquery'
+                        },
+                        shim: {
+                    
+                        }
+                    });
+                    
+                    require([
+                        'jquery',
+                        'common/base'
+                    ], function ($, base) {
+                        $(function ($) {
+                            var uid = '2037269',
+                                api = 'http://www.jiathis.com/send/';
+                            $(".widget-left").append(base.tpls("common/menu_left")).find("li").eq(8).addClass("widget-active");;
+                            base.com.tab.init("J-Normal");
+                            $('.js-share').click(function (event) {//防止冒泡
+                                // event.preventDefault();
+                                event.stopPropagation();
+                                var webid = $(this).data('webid'),
+                                    url,
+                                    title = $(this).data('title') || document.title;
+                                if ($(this).data('url')) {
+                                    url = $(this).data('url');
+                                } else {
+                                    url = location.href;
+                                }
+                                window.open(api + '?webid=' + webid + '&url=' + url + '&title=' + title + '&uid=' + uid);
+                            });
+                        });
+                    });
+                  </div>
+                  <div class="tab-list" id="css_code">
+                      <xmp>
+                      
+                    </xmp>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </body>
+  <script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/lib/jquery.htmlcode-1.0.js"></script>
+  <script type="text/javascript">
+      $("#html_code").htmlcode($("#html_code"));
+      $("#js_code").htmlcode($("#js_code"));
+  </script>
+  <script data-main="/static/js/widget/share" src="/static/js/lib/require.js"></script>
+</html>

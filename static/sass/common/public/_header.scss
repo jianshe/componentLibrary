@@ -1,0 +1,501 @@
+header {
+  background: $white;
+  border-bottom: 1px solid $bordercolor;
+  // position:absolute;
+  top: 0;
+  left: 0;
+  min-width: $five*244;
+  z-index: 800;
+  width: $fivepercent*20;
+  @include border-radius(0);
+  .container {
+    padding: 0;
+    width: $five*244 !important;
+  }
+  .navbar, .navbar-brand, .navbar-nav > li > a, .form-group, .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar {
+    // min-height:$five*17;
+  }
+  .header-top {
+    background: $hoary;
+    color: $sixgray;
+    font-size: $f12;
+    height: $five*7+1;
+    line-height: $five*7+1;
+    label {
+      float: right;
+      font-weight: lighter;
+      span {
+        display: inline-block;
+        float: left;
+        height: $five*7+1;
+        margin-right: $five*4;
+        position: relative;
+        a {
+          color: $sixgray;
+          display: inline-block;
+          font-size: $f12;
+          height: $five*7+1;
+          padding: 0 $five*2;
+          position: relative;
+          @include ellipsis;
+          i {
+            margin-top: $five*2+2;
+            right: 3px;
+            position: absolute;
+            top: 0;
+          }
+        }
+        ul {
+          background: $white;
+          border: 1px solid $lightergray;
+          top: 0;
+          display: none;
+          left: 0;
+          line-height: $five*6;
+          position: absolute;
+          padding-top: $five*7+1;
+          top: 0;
+          width: $five*20;
+          z-index: 1000;
+          @include box-shadow(1px 2px $five $gray);
+          li {
+            height: $five*6;
+            b {
+              background: $orange;
+              color: $white;
+              display: inline-block;
+              font-weight: lighter;
+              line-height: $five*3;
+              margin-left: $five;
+              padding: 0 $five;
+              @include border-radius($five+3);
+            }
+            &:hover {
+              background: $hoary;
+            }
+          }
+          a {
+            background: none !important;
+            border: 0 !important;
+          }
+        }
+      }
+      .on {
+        width: $five*20;
+        .on-radius {
+          background: $red;
+          display: inline-block;
+          height: $five+1;
+          left: 0;
+          position: absolute;
+          top: $five*3+2;
+          width: $five+1;
+          @include border-radius($fivepercent*10);
+        }
+        a {
+          width: $fivepercent*20;
+        }
+        &:hover {
+          a {
+            position: relative;
+            z-index: 1001;
+          }
+          .icon-triangle-down {
+            &:before {
+              content: "\f0aa";
+            }
+          }
+          ul {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .header-hot {
+    display: inline-block;
+    right: -($five*4-1);
+    position: absolute;
+    top: $five*6-2;
+  }
+
+  //logo
+  .navbar-header {
+    float: left;
+    height: $five*14;
+    margin-right: $five*14;
+    overflow: hidden;
+    position: relative;
+    z-index: 1000;
+    a {
+      display: block;
+      line-height: $five*18;
+    }
+    img {
+      margin-top: $five*4;
+    }
+  }
+  .nav {
+    & > li {
+      & > a {
+        padding: 0;
+      }
+    }
+  }
+  .nav-wrap {
+    text-align: center;
+    height: $five*16;
+    *height: auto;
+    position: relative;
+    z-index: 800;
+  }
+  //menu
+  .navbar-nav {
+    float: left;
+    margin-bottom: -1px;
+    li {
+      float: left;
+      margin: 0 $five*4;
+      padding: $five*6 $five $five*5 $five;
+      position: relative;
+    }
+    & > li {
+      & > a {
+        font-size: $f16;
+        font-weight: bold;
+        line-height: inherit;
+        span {
+          font-size: $f12;
+        }
+        &:link, &:visited {
+          color: $sixgray;
+          background: none;
+        }
+      }
+      &:hover {
+
+        > a {
+          background: $white;
+          color: $green;
+        }
+        .subnav {
+          display: block;
+          a {
+            color: $darkgray;
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+        .icon-triangle-down {
+          &:before {
+            content: "\f0aa";
+          }
+        }
+      }
+    }
+    & > li.active {
+      border-bottom: 2px solid $green;
+      padding-top: $five*6;
+      & > a {
+        color: $green;
+      }
+      &:hover {
+        padding-top: $five*6;
+      }
+    }
+    &.navbar-right {
+      float: right;
+      padding: 0;
+      & > li {
+        &:hover {
+          border: 0;
+        }
+        & > a {
+          padding-left: $five;
+          padding-right: $five;
+        }
+        i {
+          display: inline;
+          float: left;
+          margin: 4px 1px 0 0;
+        }
+        .subnav {
+          margin-left: -$five*36;
+          width: $five*50;
+          .subnav-down {
+            border-bottom: 1px solid $dgray;
+            line-height: $five*5+3;
+            padding: $five*3 $five*4;
+            i {
+              float: left;
+              display: block;
+              width: 56px;
+              height: 56px;
+              margin-right: $five*2;
+            }
+            span {
+              font-size: $f16;
+            }
+          }
+          .subnav-weixin {
+            display: inline-block;
+            float: left;
+            text-align: center;
+            width: $fivepercent*10;
+            padding-top: $five*2;
+            span {
+              display: inline-block;
+              color: $green;
+            }
+          }
+          &:before {
+            left: auto;
+            right: $five*12;
+          }
+          &:after {
+            left: auto;
+            right: $five*12+1;
+          }
+          img {
+            float: left;
+            margin-right: $five*2;
+          }
+        }
+      }
+      .js_user_nav {
+        line-height: $five*7;
+        margin-top: $five*5;
+        img {
+          float: left;
+          margin-right: $five;
+        }
+      }
+      .login {
+        padding: $five*5-1 0;
+        img {
+          vertical-align: middle;
+        }
+        .subnav {
+          margin-left: -$five*16;
+          width: $five*25+3;
+        }
+      }
+    }
+    .three-font {
+      margin-left: -($five*7+1) !important;
+    }
+    & > li > .subnav {
+      display: none;
+      position: absolute;
+      top: $five*13;
+      left: $fivepercent*10;
+      width: $five*25+3;
+      margin-left: -($five*8+2);
+      background: $white;
+      border: 1px solid $dgray;
+      padding: $five*2 0;
+      z-index: 1000;
+      &:after, &:before {
+        position: absolute;
+        content: " ";
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        top: -($five*3+3);
+        left: $fivepercent*10;
+      }
+      &:before {
+        border-width: $five*2;
+        border-bottom-color: $dgray;
+        margin-left: -($five*8+1);
+        margin-top: -2px;
+      }
+      &:after {
+        border-width: $five*2-1;
+        border-bottom-color: #fff;
+        margin-left: -$five*8;
+      }
+      > li {
+        border-top: 1px solid $dgray;
+        float: none;
+        line-height: $five*7-1;
+        margin: 0 $five*3+1;
+        padding: 2px;
+        &:hover {
+          > a {
+            color: $green;
+          }
+        }
+      }
+      li {
+        &:first-child {
+          border: 0;
+        }
+      }
+    }
+  }
+  .navbar-collapse {
+    position: relative;
+  }
+  .header-search {
+    float: right;
+    margin-top: $five*5-2;
+    right: 0;
+    position: absolute;
+    .search-select {
+      left: 0;
+      position: absolute;
+      top: 0;
+      label {
+        color: $ninegray;
+        cursor: pointer;
+        display: none;
+        font-weight: lighter;
+        font-size: $f12;
+        height: $five*7+1;
+        line-height: $five*7+1;
+        padding: 0 $five*3 0 $five;
+        position: relative;
+        text-align: center;
+        width: $five*16+2;
+        i {
+          position: absolute;
+          right: $five;
+          top: $five*2+3;
+        }
+      }
+      ul {
+        background: $white;
+        border: 1px solid $dgray {
+        bottom: 0;
+        top: 0;
+      };
+        color: $ninegray;
+        display: none;
+        font-size: $f12;
+        // height:$five*18+2;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: $five*6+2;
+        width: $five*16+2;
+        z-index: 2;
+        @include box-shadow(0 0 3px $dgray);
+        li {
+          border-bottom: 1px solid $dgray;
+          cursor: pointer;
+          line-height: $five*6;
+          padding-left: $five*2+1;
+        }
+      }
+      &:hover {
+        ul {
+          display: inline-block;
+        }
+      }
+    }
+    input {
+      border: 1px solid $dgray;
+      height: $five*7-1;
+      font-size: $f12;
+      line-height: $five*7;
+      padding: 0 $five*2;
+      width: $five*40;
+      @include border-radius($five*3+1);
+      @include box-sizing("content-box");
+    }
+    .icon-search {
+      color: $ninegray;
+      cursor: pointer;
+      position: absolute;
+      right: $five*3;
+      top: $five*2+1;
+    }
+    .placeholder {
+      color: $gray;
+      font-size: $f12;
+      left: $five;
+      position: absolute;
+      top: $five*2-2;
+      @include user-select("none");
+    }
+  }
+
+  .nav .subnav a {
+    display: block;
+  }
+
+  //search
+  .navbar-form {
+    margin-left: $five*5+3;
+    padding: 0;
+    .form-control {
+      border: 2px solid $green;
+      border-radius: 0;
+      &:focus {
+        @include box-shadow(none);
+      }
+    }
+    .btn-success {
+      border-radius: 0;
+      margin-left: -$five;
+      padding-top: $five+2;
+      padding-bottom: $five+3;
+    }
+  }
+
+  #user-nav {
+    position: relative;
+    //padding: 5px 0 8px;
+    cursor: pointer;
+    .icon-circle {
+      font-size: $f12;
+      color: $red;
+    }
+    .user_menu {
+      right: $five;
+      top: $five*11;
+      width: $five*30;
+      ul {
+        margin-bottom: 0;
+        border-bottom: 1px solid $dgray;
+        &:last-child {
+          border-bottom: none;
+        }
+        li {
+          border-bottom: 1px solid $dgray;
+          line-height: $five*4;
+          margin: 0 $five*2;
+          padding: $five*2;
+          width: $fivepercent*16;
+          a {
+            display: block;
+          }
+          &:last-child {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar {
+  border: 0;
+}
+
+.article-style {
+  header {
+    // .container{
+    //     padding:0;
+    //     width:$five*228!important;
+    //   }
+  }
+}

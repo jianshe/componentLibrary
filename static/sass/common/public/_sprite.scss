@@ -1,0 +1,56 @@
+$share-spacing: 5px;
+$share-layout: smart;
+$share-sprite-dimensions: true;
+@import "common/share/*.png";
+@include all-share-sprites;
+
+$input-spacing: 5px;
+$input-layout: smart;
+$input-sprite-dimensions: true;
+$disable-magic-sprite-selectors: true;
+@import "common/input/*.png";
+.icheckbox_square-green,
+.iradio_square-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    top:-1px;
+}
+
+.icheckbox_square-green{
+    @include input-sprite(icheckbox);
+}
+.icheckbox_square-green.hover {
+    @include input-sprite(icheckbox_hover);
+}
+.icheckbox_square-green.checked {
+    @include input-sprite(icheckbox_checked);
+}
+.icheckbox_square-green.disabled {
+    @include input-sprite(icheckbox_disabled);
+    cursor: default;
+}
+.icheckbox_square-green.checked.disabled {
+    @include input-sprite(icheckbox_checked_disabled);
+}
+
+.iradio_square-green {
+    @include input-sprite(iradio);
+}
+.iradio_square-green.hover {
+    @include input-sprite(iradio_hover);
+}
+.iradio_square-green.checked {
+    @include input-sprite(iradio_checked);
+}
+.iradio_square-green.disabled {
+    @include input-sprite(iradio_disabled);
+    cursor: default;
+}
+.iradio_square-green.checked.disabled {
+    @include input-sprite(iradio_checked_disabled);
+}

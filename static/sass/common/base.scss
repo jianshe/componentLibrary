@@ -1,0 +1,106 @@
+@charset "utf-8";
+@import "compass/typography";
+@import "compass/css3";
+@import "../common/variables";
+@import "../common/animates";
+@import "../common/mixins";
+@import "compass/reset";
+
+//common css
+@import "../common/public/public";
+/*------------------------------start sprite png -----------------------*/
+@import "../common/public/sprite";
+/*------------------------------end sprite png -------------------------*/
+
+/*------------------------------start icon linker ----------------------*/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.icon-linker-small, .icon-linker-middle, .icon-linker-big{
+    display:block;
+    &>i{
+        display: inline-block;
+        margin-right: $five;
+        vertical-align: top;
+    }
+}
+.icon-linker-small{
+    @include icon-linker($iconsmall, $f12);
+}
+.icon-linker-middle{
+    @include icon-linker($iconmiddle);
+}
+.icon-linker-big{
+    @include icon-linker($iconbig)
+}
+.container-fluid{
+    margin-left:auto;
+    margin-right:auto;
+    min-width:$five*244;
+    width:100%;
+}
+.container{
+    margin-left:auto;
+    margin-right:auto;
+    width:$five*244;
+}
+/*------------------------------end icon linker ------------------------*/
+
+
+/*------------------------------start button----------------------------*/
+@import "../common/public/button";
+/*------------------------------end button----------------------------*/
+
+/*------------------------------start message----------------------------*/
+@import "../common/public/message";
+/*------------------------------end message----------------------------*/
+
+/*------------------------------start pop----------------------------*/
+@import "../common/public/pop";
+/*------------------------------end pop----------------------------*/
+
+/*--------------------------start form-------------------------*/
+@import "../common/public/form";
+/*--------------------------end form-------------------------*/
+
+/*--------------------start pagination----------------------*/
+@import "../common/public/pagination";
+/*--------------------end pagination----------------------*/
+
+/*--------------------start float window----------------------*/
+@import "../common/public/floatWindow";
+/*--------------------end float window----------------------*/
+
+/*--------------------start font icon----------------------*/
+@import "../common/public/fonticon";
+/*--------------------start font icon----------------------*/
+
+/*----------------------start loading-----------------------*/
+@import "../common/public/loading";
+/*----------------------end  loading-----------------------*/
+
+
+/*----------------------start stap-----------------------*/
+@import "../common/public/stap";
+/*----------------------end  stap-----------------------*/
+
+
+@import "../common/public/header";
+@import "../common/public/footer";
+
+
+
+/*---------------------start tab-----------------------*/
+@import "../common/public/tab";
+/*---------------------end tab-----------------------*/
+
+/*----------------------start success-----------------------*/
+@import "../common/public/success";
+/*----------------------end  success-----------------------*/
+
+/*----------------------start scroll-----------------------*/
+@import "../common/public/scroll";
+/*----------------------end  scroll-----------------------*/

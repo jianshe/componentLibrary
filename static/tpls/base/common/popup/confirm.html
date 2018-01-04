@@ -1,0 +1,12 @@
+<div id="confirm" class="screen-bg"></div>
+<div class="pop confirm" style="height: {{ height }}; width: {{ width }}; margin-top: {{ marginTop }}; margin-left: {{ marginLeft }};">
+	<span class="pop-close icon-cross" data-op="close"></span>
+	<div class="pop-title">{{ title }}</div>
+	<div class="pop-content">
+		{{ #content }}
+	</div>
+	<div class="pop-bottom">
+		<span class="btn btn-middle btn-orange" data-op="confirm">确认</span>
+		<span class="btn btn-middle btn-disabled" data-op="cancel">取消</span>
+	</div>
+</div>

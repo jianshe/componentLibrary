@@ -1,0 +1,27 @@
+/* disable text select */
+@mixin cannot-select() {
+  -moz-user-select:none;/*firfox*/
+  -webkit-user-select:none;/*webkit*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*older*/
+  user-select:none;
+}
+
+
+/* icon linker */
+@mixin icon-linker($lineheight, $fontsize: 14px, $padding: 10px){
+	font-size:$fontsize;
+	line-height:$lineheight;
+	padding:$padding;
+}
+
+/* a hover underline */
+@mixin text-deco-underline($textcolor){
+  a{
+    color: $textcolor;
+    &:hover{
+      color: $textcolor;
+      text-decoration: underline;
+    }
+  }
+}

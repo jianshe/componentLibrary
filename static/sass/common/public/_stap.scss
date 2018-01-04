@@ -1,0 +1,134 @@
+.stap{
+    position: fixed;
+    width: $fivepercent*15;
+    top: $five*13;
+    z-index: 3;
+    .staps{
+        li{
+            background:$lightergray;
+            color:$black;
+            cursor:pointer;
+            font-size:$f16;
+            margin-right:$five*8;
+            padding:$five*2 0;
+            text-align:center;  
+            &:after{
+                content:"";
+                border-top:$five*5 solid transparent;
+                border-bottom:($five*4-1) solid transparent;
+                border-left:$five*6 solid $lightergray;
+                height: 0;
+                right: -$five*6;
+                position: absolute;
+                top: 0;
+                width: 0;
+            }
+            &.active{
+                background:$green;
+                color:$white;
+                &:after{
+                    border-top:$five*5 solid transparent;
+                    border-bottom:($five*4-1) solid transparent;
+                    border-left:$five*6 solid $green;
+                }
+            }
+        }
+    }
+}
+
+
+.ystep-container {
+  display: inline-block;
+  position: relative;
+  color:$black;
+}
+.ystep-container ul {
+  list-style: none;
+}
+.ystep-container ul,.ystep-container li,.ystep-container p {
+  margin: 0;
+  padding: 0;
+}
+
+/*size css*/
+.ystep-lg {
+  height:$five*12;
+  font-size:$f16;
+  line-height: 9.3;
+}
+/*large size css*/
+.ystep-lg .ystep-container-steps {
+  position: absolute;
+  top: 2px;
+  cursor: pointer;
+  z-index: 10;
+}
+.ystep-lg li {
+  float: left;
+  width:$five*40;
+  height:$five*17;
+}
+.ystep-lg .ystep-step1-done {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position:0% $fivepercent*6;
+  color:#89bc65;
+}
+.ystep-lg .ystep-step2-done {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position:36.1% $fivepercent*6;
+   color:#89bc65;
+}
+.ystep-lg .ystep-step2-undone {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position: 17.8% $fivepercent*6;
+}
+.ystep-lg .ystep-step3-done {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position:73% $fivepercent*6;
+   color:#89bc65;
+}
+.ystep-lg .ystep-step3-undone {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position: 54.7% $fivepercent*6;
+}
+.ystep-lg .ystep-step4-done {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position:109% $fivepercent*6;
+   color:#89bc65;
+}
+.ystep-lg .ystep-step4-undone {
+  background-image: url("/static/images/new/zhaobiao/pointes_step.png");
+   background-repeat: no-repeat;
+  background-position: 90.7% $fivepercent*6;
+}
+.ystep-lg .ystep-progress {
+  height:$five;
+  position: absolute;
+  top: $five*6;
+  left: $five*3;
+  float: left;
+  margin-right: $five*2;
+  overflow: hidden;
+}
+.ystep-lg .ystep-progress-bar {
+  width: $five*120;
+  height: $five*2;
+  background: #e4e4e4;
+  display: inline-block;
+  float: left;
+}
+.ystep-lg .ystep-progress-highlight {
+  height: $five*4;
+  display: block;
+}
+
+/*green css*/
+.ystep-green .ystep-progress-highlight {
+  background: #89bc65;
+}

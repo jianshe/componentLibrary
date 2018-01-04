@@ -1,0 +1,18 @@
+.loading{
+    .screen-bg{
+        background:$gray;
+        position:absolute;
+        @include opacity(0.2);
+    }
+    .loading-img{
+        background:url("/static/images/new/loading.gif");
+        height:$five*6+2;
+        left:$fivepercent*10;
+        margin-left:-($five*3+1);
+        margin-top:-($five*3+1);
+        position:absolute;
+        top:$fivepercent*10;
+        width:$five*6+2;
+        z-index:1000;
+    }
+}

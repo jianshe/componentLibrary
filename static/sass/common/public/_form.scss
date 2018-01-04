@@ -1,0 +1,168 @@
+form {
+  position: relative;
+  .form-list {
+    color: $sixgray;
+    display: block;
+    // height:$five*12;
+    margin-top: $five*5;
+    position: relative;
+    dt {
+      display: inline-block;
+      font-size: $f16;
+      font-weight: lighter;
+      float: left;
+      height: $five*6;
+      margin-right: $five*2;
+      margin-top: $five+1;
+      overflow: hidden;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      width: $five*14;
+      &:after {
+        display: inline-block;
+        content: '';
+        overflow: hidden;
+        width: $fivepercent*20;
+        height: 0;
+      }
+    }
+    dd {
+      display: inline-block;
+      .verify-code {
+        float: left;
+        width: $five*24 !important;
+      }
+      .verify-code-op {
+        border: 1px solid $gray {
+        left: 0;
+      };
+        cursor: pointer;
+        display: inline-block;
+        height: $five*7+2;
+        line-height: $five*7+2;
+        padding: 0 $five+1;
+      }
+    }
+    input[type="text"], input[type="password"], textarea {
+      border: 1px solid $gray;
+      padding: $five*2;
+      width: $fivepercent*20;
+      &.error {
+        border: 1px solid $lightorange;
+      }
+      &:focus {
+        border: 1px solid $green;
+      }
+    }
+    label.error {
+      background: url("/static/images/new/common/share/icon-errors.png") no-repeat 0 2px;
+      color: $lightorange;
+      display: block;
+      font-weight: normal;
+      margin-top: $five*2;
+      padding-left: $five*4;
+      position: relative;
+      /*@include opacity(0);*/
+    }
+    i {
+      position: absolute;
+      right: $five*2;
+      top: $five*2;
+      font-size: $f20;
+      color: $ninegray;
+    }
+    /*.visible{
+        @include opacity(1);
+    }*/
+  }
+  // .form-list-check{
+  //     display:block;
+  //     height:$five*5;
+  //     margin-top:$five*3;
+  //     position:relative;
+  //     span{
+  //         font-weight:bold;
+  //         margin-right:$five*2;
+  //     }
+  //     label{
+  //         font-weight:lighter;
+  //         margin-right:$five*2;
+  //     }
+
+  // }
+  // .form-list-pwd{
+  //     input[type="text"]{
+  //         width:$fivepercent*11;
+  //     }
+  //     span{
+  //         position: absolute;
+  //         right: 0px;
+  //         top:2px;
+  //         i{
+  //             font-size:$f14;
+  //             right: 2px;
+  //             color:$white;
+  //         }
+  //     }
+  // }
+  // .form-list-argee{
+  //     @extend .form-list-check;
+  // }
+  .placeholder {
+    color: $gray;
+    left: $five*2+2;
+    position: absolute;
+    top: $five+2;
+    @include cannot-select();
+  }
+}
+
+div.error {
+  color: $red;
+  label {
+    display: block;
+    font-weight: normal;
+    line-height: $five*4;
+    position: relative;
+  }
+}
+
+.form-bottom {
+  color: $red;
+  margin-top: $five*4;
+}
+
+.verifycode {
+  width: $five*30 !important;
+  @include user-select(none);
+  .verification {
+    padding: $five*2;
+    //background: #f0f0f0;
+    img {
+      cursor: pointer;
+      margin-bottom: $five*2;
+      width: 75px;
+      height: 30px;
+      border: 1px solid #e0e0e0;
+    }
+    input {
+      vertical-align: top;
+      margin-right: 2px;
+      width: $five*15;
+      height: $five*6;
+    }
+    .refresh {
+      position: relative;
+      top: -20px;
+      left: 6px;
+      color: #8c8c8c;
+      font-size: $f12;
+      cursor: pointer;
+    }
+    .btn {
+      height: 30px;
+      border-radius: 0;
+      font-size: $f12;
+    }
+  }
+}

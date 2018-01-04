@@ -1,0 +1,127 @@
+.tab-default {
+  &.nav-tabs {
+    border-bottom: 1px solid $green;
+    > li {
+      > a {
+        border-radius: 0;
+        &:hover, &:focus {
+          border: 1px solid transparent;
+          background-color: transparent;
+        }
+      }
+      &.active > a {
+        color: $green;
+        border: 1px solid $green;
+        border-bottom-color: transparent;
+        font-weight: bold;
+        &:hover, &:focus {
+          border: 1px solid $green;
+          border-bottom-color: $white;
+        }
+        padding: $five*2 $five*5;
+      }
+    }
+  }
+}
+
+.tab-float {
+  &.nav-tabs {
+    //background:$hoary;
+    > li {
+      width: $fivepercent*10;
+      text-align: center;
+      a {
+        background: none;
+        border: 0;
+        color: $white;
+      }
+      &.active > a {
+        background: none;
+        border: 0;
+        color: $white;
+        border-bottom: 2px solid $green;
+        font-weight: bold;
+      }
+    }
+    .badge {
+      background: $pink;
+      font-weight: normal;
+    }
+  }
+}
+
+.tabs-list {
+  border: 1px solid $dgray;
+  margin-top: $five*4;
+  padding: $five*4;
+}
+
+.tab-more {
+  border-bottom: 1px solid $dgray;
+  margin-bottom: 0;
+  li {
+    display: inline-block;
+    padding: $five $five*3;
+  }
+  .active {
+    border-bottom: 2px solid $green;
+    color: $green;
+    font-weight: bold;
+    a {
+      color: $green;
+    }
+  }
+}
+
+//new tab
+.new-tab {
+  .tab-boder {
+    border-bottom: 1px solid $zerohoary;
+    li {
+      display: inline-block;
+      margin-bottom: -1px;
+      a {
+        color: $sixgray;
+        display: inline-block;
+        padding: $five $five*4;
+      }
+    }
+    .active {
+      background: $white;
+      border: 1px solid $zerohoary;
+      bottom: 0;
+      top: 3px solid $green;
+      a {
+        color: $green;
+      }
+    }
+  }
+  .tab-none-boder {
+    border-bottom: 1px solid $zerohoary;
+    li {
+      display: inline-block;
+      margin-bottom: -1px;
+      a {
+        color: $sixgray;
+        display: inline-block;
+        padding: $five $five*4;
+      }
+    }
+    .active {
+      background: $white;
+      border-bottom: 3px solid $green;
+      a {
+        color: $green;
+      }
+    }
+  }
+  .tab-content {
+    .tab-list {
+      display: none;
+      padding: $five*2;
+    }
+    .active {
+      display: block;
+    }
+  }
+}
