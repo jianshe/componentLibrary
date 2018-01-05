@@ -165,3 +165,13 @@ fieldset span {
 .widget-share {
   vertical-align: top;
 }
+
+/* line 131, ../../sass/widget/widget.scss */
+.top-nav-wrap {
+  height: 30px;
+  background-color: #f7f7f7;
+  border-top: 2px solid #ff4901;
+  border-bottom: 1px solid #dfdfdf;
+  width: 100%;
+  z-index: 999;
+}

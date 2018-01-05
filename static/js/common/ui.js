@@ -304,13 +304,13 @@ define([
                     $(this).parent().remove();
                 });
 
-                setTimeout(function() {
-                    messageDom = $('#message');
-                    messageDom.removeClass("message").addClass("message-out");
-                    setTimeout(function() {
-                        messageDom.remove();
-                    }, 200);
-                }, 3000);
+                // setTimeout(function() {
+                //     messageDom = $('#message');
+                //     messageDom.removeClass("message").addClass("message-out");
+                //     setTimeout(function() {
+                //         messageDom.remove();
+                //     }, 200);
+                // }, 3000);
             } else {
                 messageDom.css('top', top);
                 messageDom.attr('class', 'message ' + className);
