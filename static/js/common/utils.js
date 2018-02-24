@@ -2,10 +2,10 @@
  *  通用工具
  */
 
-define(['jquery'], function($) {
+define(['jquery'], function ($) {
 
     if (!Array.prototype.indexOf) {
-        Array.prototype.indexOf = function(elt) {
+        Array.prototype.indexOf = function (elt) {
             var len = this.length >>> 0;
             var from = Number(arguments[1]) || 0;
             from = (from < 0) ? Math.ceil(from) : Math.floor(from);
@@ -20,7 +20,7 @@ define(['jquery'], function($) {
         };
     }
 
-    var _toQueryPair = function(key, value) {
+    var _toQueryPair = function (key, value) {
         if (typeof value === 'undefined') {
             return key;
         }
@@ -37,7 +37,7 @@ define(['jquery'], function($) {
         /**
          * 字符串截取
          */
-        subStr: function(str, length) {
+        subStr: function (str, length) {
             if (str.length > length) {
                 return str.substr(0, parseInt(length)) + '...';
             }
@@ -46,19 +46,19 @@ define(['jquery'], function($) {
         /*
          * 去掉前后空格
          */
-        strTrim: function(s) {
+        strTrim: function (s) {
             return s.replace(/(^\s+)|(\s+$)/g, "");
         },
         /*
          * 解析RUI参数
          * str: uri字符串
          */
-        parseURIParams: function(str) {
+        parseURIParams: function (str) {
             var params = {},
                 e,
                 a = /\+/g,
                 r = /([^&=]+)=?([^&]*)/g,
-                d = function(s) {
+                d = function (s) {
                     return decodeURIComponent(s.replace(a, " "));
                 };
 
@@ -71,7 +71,7 @@ define(['jquery'], function($) {
         /*
          * 对像转成URI
          */
-        objToQuery: function(obj) {
+        objToQuery: function (obj) {
             var ret = [];
             for (var key in obj) {
                 key = encodeURIComponent(key);
@@ -93,7 +93,7 @@ define(['jquery'], function($) {
          * 取当前路径的参数值
          * arg: 参数名
          */
-        parseLocation: function(arg) {
+        parseLocation: function (arg) {
             var uri = location.search;
             if (uri !== "") {
                 var argsObj = this.parseURIParams(uri.substr(1));
@@ -104,7 +104,7 @@ define(['jquery'], function($) {
         /*
          * 中文链接编码 
          */
-        b64EncodeUrl: function(string) {
+        b64EncodeUrl: function (string) {
             if (window.BASE64) {
                 return BASE64.encoder(string.replace('风格', '')).replace('+', '-').replace('/', '_').replace('=', '');
             }
@@ -113,7 +113,7 @@ define(['jquery'], function($) {
         /*
          * Timeago 相对时间美化  2011-05-06 12:30:22  ---> 三分钟之前
          */
-        prettyDate: function(time) {
+        prettyDate: function (time) {
             var date = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
                 diff = (((new Date()).getTime() - date.getTime()) / 1000),
                 day_diff = Math.floor(diff / 86400);
@@ -138,7 +138,7 @@ define(['jquery'], function($) {
         /**
          * 切换城市刷新URL
          */
-        changeURLArg: function(url, arg, arg_val) {
+        changeURLArg: function (url, arg, arg_val) {
             if (url.indexOf('#')) {
                 url = url.split('#')[0];
             }
@@ -160,7 +160,7 @@ define(['jquery'], function($) {
         /**
          * url跳转
          */
-        locationUrl: function(url) {
+        locationUrl: function (url) {
             var w = window.open();
             return w.location = url;
         },
@@ -169,7 +169,7 @@ define(['jquery'], function($) {
          * total 记录总数
          * size 每页显示的记录个数
          */
-        pageCount: function(total, size) {
+        pageCount: function (total, size) {
             var count = Math.floor(total / size),
                 vod = total % size;
             if (vod > 0) {
@@ -182,7 +182,7 @@ define(['jquery'], function($) {
          * money 数额
          * split 是否每3位添加一个分隔，通常是','，不分不要传
          */
-        formatCurrency: function(money, split) {
+        formatCurrency: function (money, split) {
             split = split || '';
             var num = money.toString().replace(/\$|\,/g, ''),
                 sign;
@@ -203,27 +203,27 @@ define(['jquery'], function($) {
         /**
          * 链接中的Next参数
          */
-        uriNext: function(def) {
+        uriNext: function (def) {
             uriObj = this.parseURIParams(location.search.substr(1));
             return uriObj.next || (def || '');
         },
 
         //优化url，去掉url中不合法的token
-        optimizeUrl: function(url) {
+        optimizeUrl: function (url) {
             var re = new RegExp("<[^>]*>", "gi");
             url = url.replace(re, "");
             return url;
         },
 
         //判断是否邮件
-        isEmail: function(str) {
+        isEmail: function (str) {
             return this.reEmail.test(str);
         },
 
         /*
          * 检查发布内容是否包含链接
          */
-        checkContentUrl: function(content) {
+        checkContentUrl: function (content) {
             var matchStr = "component";
             var flag = false;
             var indexResult;
@@ -258,30 +258,97 @@ define(['jquery'], function($) {
             }
         },
 
-        //判断发布内容中是否有广告链接
-        checkUrl: function(content) {
-            if (this.checkContentUrl(content) === false) {
-                alert("发布内容中包含非本站点链接，请检查您的发布内容！");
-                return false;
-            }
-            return true;
-        },
-
-        //改变锚点标签颜色
-        changeAnchorColor: function(content) {
-            var re_color = new RegExp("<a", 'gi');
-            return content.replace(re_color, '<a style="color:rgb(120,120,200)"');
-        },
-
-        //添加附件内容
-        addAttachment: function(app_label, model, id, atype) {
-            _addAttachment(app_label, model, id, atype);
-        },
-
         //首字母大写
-        ucFirst: function(word) {
+        ucFirst: function (word) {
             return word.substring(0, 1).toUpperCase() + word.substring(1);
+        },
+        //数组乱序
+        aryex: function (ary) {
+            if (!ary || !ary.length) return ary;
+            ary.sort(function () {
+                return Math.random - 0.05;
+            })
+            return ary;
+        },
+        //格式化时间 eg:formatDate("2018-03-12 09:00:30:20", 'yyyy-MM-dd hh:mm:ss:S')
+        formatDate: function (param, fmt) {
+            let date = new Date(param);
+            let o = {
+                "M+": date.getMonth() + 1, //月份 
+                "d+": date.getDate(), //日 
+                "h+": date.getHours(), //小时 
+                "m+": date.getMinutes(), //分 
+                "s+": date.getSeconds(), //秒 
+                "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
+                "S": date.getMilliseconds() //毫秒 
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (let k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        },
+        //向左跑马灯
+        scrollLeft: function ($obj) {
+            var $child = $obj.children().clone();
+            $obj.append($child);
+            var initLeft = 0;
+            var timer = null;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                initLeft = $obj.scrollLeft();
+                initLeft++;
+                if (initLeft >= $child.width()) {
+                    initLeft -= $child.width();
+                }
+                $obj.scrollLeft(initLeft);
+            }, 30);
+        },
+        //向上跑马灯
+        scrollTop: function ($obj) {
+            var $child = $obj.children().clone();
+            $obj.append($child);
+            var initTop = 0;
+            var timer = null;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                initTop = $obj.scrollTop();
+                initTop++;
+                if (initTop >= $child.height()) {
+                    initTop -= $child.height();
+                }
+                $obj.scrollTop(initTop);
+            }, 30);
+        },
+        // 获取url参数
+        getQuerySearchString: function (key) {
+            let reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            let result = window.location.search.substr(1).match(reg);
+            return result ? decodeURIComponent(result[2]) : null;
+        },
+        //set cookie
+        setCookie: function (cookiename, cookievalue, hours) {
+            let date = new Date();
+            date.setTime(date.getTime() + Number(hours) * 3600 * 1000);
+            document.cookie = cookiename + "=" + cookievalue + "; path=/;expires = " + date.toGMTString();
+        },
+        //get cookie
+        getCookie: function (name) {
+            let mn = name + "=";
+            let b, e;
+            let co = document.cookie;
+            if (mn == "=") {
+                return co;
+            }
+            b = co.indexOf(mn);
+            if (b < 0) {
+                return "";
+            }
+            e = co.indexOf(";", b + name.length);
+            if (e < 0) {
+                return co.substring(b + name.length + 1);
+            } else {
+                return co.substring(b + name.length + 1, e);
+            }
         }
-
     };
 });
